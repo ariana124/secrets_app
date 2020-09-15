@@ -1,0 +1,24 @@
+{
+  "name": "secrets_app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ariana124/secrets_app.git"
+  },
+  "author": "AB",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ariana124/secrets_app/issues"
+  },
+  "homepage": "https://github.com/ariana124/secrets_app#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1"
+  }
+}
