@@ -19,7 +19,7 @@ const userSchema = new mongoose.Schema ({
     password: String
 });
 
-const secret = "Supersecretstring";
+const secret = process.env.SECRET;
 // This will encrypt the user's password and also allow it to be decrypted when we need to find it.
 userSchema.plugin(encyrpt, { secret: secret, encryptedFields: ["password"]});
 
