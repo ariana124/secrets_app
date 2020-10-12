@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const mongoose = require("mongoose");
+const encrypt = require("mongoose-encryption");
 
 const app = express();
 
@@ -11,10 +12,15 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 mongoose.connect("mongodb://localhost:27017/userDB", {useNewUrlParser: true});
 
-const userSchema = {
+// This is now an object that created using the mongoose Schema class.
+const userSchema = new mongoose.Schema ({
     email: String,
     password: String
-};
+});
+
+const secret = "Supersecretstring";
+// This will encrypt the user's password and also allow it to be decrypted when we need to find it.
+userSchema.plugin(encyrpt, { secret: secret, encryptedFields: ["password"]});
 
 const User = new mongoose.model("User", userSchema);
 
